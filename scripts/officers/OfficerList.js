@@ -1,7 +1,7 @@
 import {OfficerHTML} from './Officer.js';
 import {getOfficers, useOfficers} from './OfficerProvider.js';
 
-export const OfficerList = () => {
+export const officerList = () => {
     // this OfficerList function just calls getOfficers
     getOfficers() 
     // getOfficers initiates the api call
