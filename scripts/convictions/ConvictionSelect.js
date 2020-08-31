@@ -13,7 +13,13 @@ export const ConvictionSelect = () => {
     .then(convictionNames => {
         const convictionsList = convictionNames;
         const fullList = useConvictions(convictionsList);
-    
+        const sortedArray = [];
+        // pushes only the crime names into an array
+        fullList.map(taco => {
+            sortedArray.push(taco.name)
+        })
+        // sorts the array alphabetically
+        sortedArray.sort();
 
         const render = (convictionsCollection) =>  {
        
@@ -21,16 +27,15 @@ export const ConvictionSelect = () => {
                 <select class="dropdown" id="crimeSelect">
                     <option value="0">Please select a crime...</option>
                     ${
-                        convictionsCollection.map(convictionObj => {
-                        const selecting = convictionObj.name
-                        return `<option>${selecting}</option>`
+                        convictionsCollection.map(tacoCrime => {
+                        return `<option value=${tacoCrime}>${tacoCrime}</option>`
                         })
                     }
                 </select>
             `
     }
 
-    render(fullList)
+    render(sortedArray)
     }
 
 )}
