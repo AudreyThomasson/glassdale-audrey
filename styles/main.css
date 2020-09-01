@@ -6,6 +6,17 @@ p {
     line-height: 5px;
 }
 
+.officersContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-officer {
+    border: solid blue 1px;
+    margin: 1em;
+    padding: 0 1em;
+    width: 250px
+}
 
 .criminalsContainer {
     display: flex;
@@ -13,7 +24,7 @@ p {
 }
 
 .card-criminal {
-    border: solid black 1px;
+    border: solid red 1px;
     margin: 1em;
     padding: 0 1em;
     width: 250px
