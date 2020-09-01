@@ -1,27 +1,10 @@
-// / ----------------EVENTHUB CODE FOR CHOICE MADE BELOW---------------------
 /*
-    Which element in your HTML contains all components?
-    That's your Event Hub. Get a reference to it here.
-*/
-const eventHub = document.querySelector(".container")
-// On the event hub, listen for a "change" event.
-eventHub.addEventListener("change", event => {
+ *   ConvictionSelect component that renders a select HTML element
+ *   which lists all convictions in the Glassdale PD API
+ */
+import { useConvictions, getConvictions } from "./ConvictionProvider.js"
 
-    // Only do this if the `crimeSelect` element was changed
-    if (event.target.id === "crimeSelect") {
-        // Create custom event. Provide an appropriate name.
-        const customEvent = new CustomEvent("crimeChosen", {
-            detail: {
-                crimeThatWasChosen: event.target.value
-            }
-        })
-
-        // Dispatch to event hub
-        eventHub.dispatchEvent(customEvent)
-    }
-})
-// ------------------------------END OF EVENTHUB CODE--------------------------
-
+// Get a reference to the DOM element where the <select> will be rendered
 const contentTarget = document.querySelector(".filters__crime")
 
 export const ConvictionSelect = () => {
