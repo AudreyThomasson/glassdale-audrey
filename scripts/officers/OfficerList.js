@@ -9,7 +9,6 @@ export const officerList = () => {
         // .then = wait until everything processes into getOfficers
         const officerArray = useOfficers();
         // set the useOfficers array equal to the name officerArray
-        console.log('officerArray', officerArray);
         addOfficersToDOM(officerArray);
         // calls the addOfficersToDOM function below and passes in the array
     })
