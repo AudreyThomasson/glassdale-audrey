@@ -3,8 +3,12 @@ body {
   }
 
 p {
-    line-height: 5px;
+    line-height: 7px;
 }
+
+/* .filters {
+    float: left;
+} */
 
 .officersContainer {
     display: flex;
@@ -20,7 +24,8 @@ p {
 
 .criminalsContainer {
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: row wrap
+    /* flex-wrap: wrap; */
 }
 
 .card-criminal {

@@ -14,14 +14,14 @@ export const officerList = () => {
     })
 }
 
-const addOfficersToDOM = (anOfficerTacoArray) => {
-    const domElement = document.querySelector('.officersContainer');
+// const addOfficersToDOM = (anOfficerTacoArray) => {
+//     const domElement = document.querySelector('.officersContainer');
     
-    let HTMLArray = anOfficerTacoArray.map(singleTacoOfficer => {
-        // .map goes through each item of the array
-        return OfficerHTML(singleTacoOfficer);
-    })
+//     let HTMLArray = anOfficerTacoArray.map(singleTacoOfficer => {
+//         // .map goes through each item of the array
+//         return OfficerHTML(singleTacoOfficer);
+//     })
     
-    domElement.innerHTML = HTMLArray.join("");
-    // adds to dom without the joining comma
-}
+//     domElement.innerHTML = HTMLArray.join("");
+//     // adds to dom without the joining comma
+// }
