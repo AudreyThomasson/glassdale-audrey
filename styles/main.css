@@ -6,8 +6,17 @@ p {
     line-height: 7px;
 }
 
-/* .filters {
-    float: left;
+.filters {
+    display: flex;
+    flex-direction: row;
+}
+
+/* .filter filters__crime {
+    display: inline-block;
+}
+
+.filter filters__officer {
+    display: inline-block;
 } */
 
 .officersContainer {

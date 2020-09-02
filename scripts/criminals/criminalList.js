@@ -23,16 +23,18 @@ eventHub.addEventListener('crimeChosen', event => {
 })
 // -------THE ONE BELOW IS LISTENING FOR A PARTICULAR CHOSEN ARRESTING OFFICER------
 
-eventHub.addEventListener("officerSelected", event => {
+eventHub.addEventListener('officerSelected', event => {
     // How can you access the officer name that was selected by the user?
     // How can you get the criminals that were arrested by that officer?
-    if (event.detail.officer !== "0") {
-    const matchingOfficers = useCriminals().filter(currentCriminal => {
-        return currentCriminal.arrestingOfficer === event.detail.officer
+    if (event.detail.officerChosen !== "0") {
+    const matchedCriminalsToOfficers = useCriminals().filter(currentCriminal => {
+        console.log(event.detail.officerChosen)
+        return currentCriminal.arrestingOfficer === event.detail.officerChosen
     })
-        addCriminalsToDOM(matchingOfficers)
+    console.log(matchedCriminalsToOfficers)
+    addCriminalsToDOM(matchedCriminalsToOfficers)
     } else {
-        addCriminalsToDOM(useCriminals());
+    addCriminalsToDOM(useCriminals());
     }
 })
 

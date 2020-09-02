@@ -2,20 +2,18 @@ import { getOfficers, useOfficers} from "./officerProvider.js"
 
 const eventHub = document.querySelector(".container")
 
-eventHub.addEventListener("change", changeEvent => {
-    if (changeEvent.target.id === "officerSelect") {
+eventHub.addEventListener("change", event => {
+    if (event.target.id === "officerSelect") {
         // Get the name of the selected officer
-        const selectedOfficer = changeEvent.target.value
-
         // Define a custom event
-        const customEvent = new CustomEvent("officerSelected", {
+        const officerCustomEvent = new CustomEvent('officerSelected', {
             detail: {
-                officer: selectedOfficer
+                officerChosen: event.target.value
             }
         })
 
         // Dispatch event to event hub
-        eventHub.dispatchEvent(customEvent)
+        eventHub.dispatchEvent(officerCustomEvent)
     }
 })
 
@@ -24,34 +22,23 @@ const contentTarget = document.querySelector(".filters__officer")
 
 
 export const OfficerSelect = () => {
-    // Get all convictions from application state
+    // Get all officers from application state
     getOfficers()
-    .then(officerNames => {
-        const officerList = officerNames;
-        const fullList = useOfficers(officerList);
-        const nameArray = [];
-        // pushes only the officer names into an array
-        fullList.map(taco => {
-            nameArray.push(taco.name)
-        })
-        // // sorts the array alphabetically
-        // sortedArray.sort();
+    .then(() => {
+        const officerList = useOfficers();
 
         const render = (officerCollection) =>  {
-       
             contentTarget.innerHTML = `
                 <select class="dropdown" id="officerSelect">
                     <option value="0">Please select an officer...</option>
                     ${
                         officerCollection.map(tacoOfficer => {
-                        return `<option value=${tacoOfficer}>${tacoOfficer}</option>`
+                        return `<option value="${tacoOfficer.name}">${tacoOfficer.name}</option>`
                         })
                     }
                 </select>
             `
     }
-
-    render(nameArray)
+    render(officerList)
     }
-
 )}
