@@ -1,3 +1,5 @@
+import { useConvictions, getConvictions } from "./ConvictionProvider.js"
+
 // / ----------------EVENTHUB CODE FOR CHOICE MADE BELOW---------------------
 /*
     Which element in your HTML contains all components?
@@ -7,12 +9,14 @@ const eventHub = document.querySelector(".container")
 // On the event hub, listen for a "change" event.
 eventHub.addEventListener("change", event => {
 
-    // Only do this if the `crimeSelect` element was changed
+    // // Only do this if the user actually clicked on a 
+    // crime in the dropdown -ie-`crimeSelect` element was changed
     if (event.target.id === "crimeSelect") {
         // Create custom event. Provide an appropriate name.
         const customEvent = new CustomEvent("crimeChosen", {
             detail: {
                 crimeThatWasChosen: event.target.value
+                
             }
         })
 

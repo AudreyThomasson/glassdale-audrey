@@ -1,6 +1,28 @@
 import { getCriminals, useCriminals } from "./CriminalProvider.js";
 import { CriminalHTML } from "./Criminal.js";
 
+const eventHub = document.querySelector(".container")
+// Listen for the custom event you dispatched in ConvictionSelect
+eventHub.addEventListener('crimeChosen', event => {
+    // You remembered to add the id of the crime to the event detail, right?
+    if ("crimeId" in event.detail) {
+        /*
+            Filter the criminals application state down to the people that committed the crime
+        */
+        const matchingCriminals = criminalArray.filter()
+
+        addCriminalsToDOM(matchingCriminals)
+        /* Then invoke render() and pass the filtered collection as
+            an argument */
+    }
+})
+
+
+
+
+
+
+
 export const criminalList = () => {
     // this OfficerList function just calls getOfficers
     getCriminals() 
@@ -9,7 +31,7 @@ export const criminalList = () => {
         // .then = wait until everything processes into getOfficers
         const criminalArray = useCriminals();
         // set the useOfficers array equal to the name officerArray
-        console.log('criminalArray', criminalArray);
+        // console.log('criminalArray', criminalArray);
         addCriminalsToDOM(criminalArray);
         // calls the addOfficersToDOM function below and passes in the array
     })
