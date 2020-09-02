@@ -1,6 +1,7 @@
 import { getCriminals, useCriminals } from "./CriminalProvider.js";
 import { CriminalHTML } from "./Criminal.js";
 
+// -------THE ONE BELOW IS LISTENING FOR A PARTICULAR CHOSEN CRIME------
 const eventHub = document.querySelector(".container")
 // Listen for the custom event you dispatched in ConvictionSelect
 eventHub.addEventListener('crimeChosen', event => {
@@ -20,8 +21,22 @@ eventHub.addEventListener('crimeChosen', event => {
         addCriminalsToDOM(useCriminals());
     }
 })
+// -------THE ONE BELOW IS LISTENING FOR A PARTICULAR CHOSEN ARRESTING OFFICER------
 
-
+eventHub.addEventListener('officerSelected', event => {
+    // How can you access the officer name that was selected by the user?
+    // How can you get the criminals that were arrested by that officer?
+    if (event.detail.officerChosen !== "0") {
+    const matchedCriminalsToOfficers = useCriminals().filter(currentCriminal => {
+        console.log(event.detail.officerChosen)
+        return currentCriminal.arrestingOfficer === event.detail.officerChosen
+    })
+    console.log(matchedCriminalsToOfficers)
+    addCriminalsToDOM(matchedCriminalsToOfficers)
+    } else {
+    addCriminalsToDOM(useCriminals());
+    }
+})
 
 
 
