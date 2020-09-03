@@ -10,7 +10,22 @@ const dispatchStateChangeEvent = () => {
     eventHub.dispatchEvent(noteStateChangedEvent)
 }
 // __________________END of EVENTHUB CODE_____________________
+
 let notes = []
+
+export const getNotes = () => {
+    return fetch("http://localhost:8088/notes")
+        .then(response => response.json())
+        .then(
+            parsedNotes => {
+            notes = parsedNotes
+            })
+}
+
+export const useNotes = () => {
+    return notes.slice();
+}
+
 
 export const saveNote = tacoNoteObj => {
     return fetch("http://localhost:8088/notes", {
@@ -20,23 +35,10 @@ export const saveNote = tacoNoteObj => {
         },
         body: JSON.stringify(tacoNoteObj)
     })
-    .then(getNotes)
+    .then(() => {
+        return getNotes()
+    })
     .then(dispatchStateChangeEvent)
-}
-
-export const getNotes = () => {
-    return fetch("http://localhost:8088/notes")
-        .then(response => response.json())
-        .then(
-            parsedNotes => {
-                // console.table(parsedCrimes)
-            notes = parsedNotes
-            }
-        )
-}
-
-export const useNotes = () => {
-    return notes.slice()
 }
 
 
