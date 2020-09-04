@@ -1,8 +1,5 @@
 let criminals = []
 
-export const useCriminals = () => {
-    return criminals.slice()
-}
 
 export const getCriminals = () => {
     return fetch("https://criminals.glassdale.us/criminals")
@@ -13,4 +10,8 @@ export const getCriminals = () => {
                 criminals = parsedCriminals
             }
         )
+}
+
+export const useCriminals = () => {
+    return criminals.slice()
 }
