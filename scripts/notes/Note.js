@@ -7,6 +7,7 @@ export const noteHTML = (noteTaco) => {
             <p>Note Text: ${noteTaco.noteText}</p>
             <p>Suspect: ${noteTaco.suspect}</p>
             <p>Date: ${new Date(noteTaco.date).toLocaleDateString('en-US')}</p>
+            <br>
         </section>     
     `
 }

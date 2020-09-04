@@ -26,7 +26,7 @@ export const useNotes = () => {
     return notes.slice();
 }
 
-
+// pushes the note just written to the server
 export const saveNote = tacoNoteObj => {
     return fetch("http://localhost:8088/notes", {
         method: "POST",
