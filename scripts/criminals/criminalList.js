@@ -1,4 +1,4 @@
-import { getCriminals, useCriminals } from "./CriminalProvider.js";
+import { getCriminals, useCriminals } from "./criminalProvider.js";
 import { CriminalHTML } from "./Criminal.js";
 
 // -------THE ONE BELOW IS LISTENING FOR A PARTICULAR CHOSEN CRIME------
