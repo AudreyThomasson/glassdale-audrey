@@ -7,7 +7,6 @@ export const getCriminals = () => {
         .then(
             parsedCriminals => {
                 console.table(parsedCriminals)
-                debugger
                 criminals = parsedCriminals
             }
         )
