@@ -3,10 +3,10 @@
 
 export const noteHTML = (noteTaco) => {
     return `
-        <section id="note-${noteTaco.id}" class="card-note">
-            <p>Note Text: ${noteTaco.noteText}</p>
-            <p>Suspect: ${noteTaco.suspect}</p>
-            <p>Date: ${new Date(noteTaco.date).toLocaleDateString('en-US')}</p>
+        <section class="card-note">
+            <div class="note--content">Note Text: ${noteTaco.noteText}</div>
+            <div class="note--title">Suspect: ${noteTaco.suspectObj.name}</div>
+            <div class="note--timestamp">Date: ${new Date(noteTaco.date).toLocaleDateString('en-US')}</div>
             <br>
         </section>     
     `
