@@ -46,7 +46,7 @@ const render = (criminalArray) => {
                     }).join("")
                 }
             </select>
-             <button type="button" id="saveNote">Save Note</button>
+            <button type="button" id="saveNote">Save Note</button>
         </div>
     `
 }

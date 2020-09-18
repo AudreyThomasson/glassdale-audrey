@@ -41,5 +41,16 @@ export const saveNote = tacoNoteObj => {
     })
     .then(dispatchStateChangeEvent)
 }
+// button click
+// reference specific note by the id
+// remove from api
+// get all notes
+// display notes
 
-
+export const deleteNote = noteId => {
+    return fetch(`http://localhost:8088/notes/${noteId}`, {
+        method: "DELETE"
+    })
+        .then(getNotes)
+        .then(dispatchStateChangeEvent)
+}

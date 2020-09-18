@@ -1,5 +1,5 @@
 // map over an array and display all notes from Note.js
-import { useNotes, getNotes } from "./NoteProvider.js"
+import { useNotes, getNotes, deleteNote } from "./NoteProvider.js"
 import { noteHTML } from "./Note.js"
 import { getCriminals, useCriminals } from "../criminals/criminalProvider.js";
 
@@ -10,6 +10,13 @@ const eventHub = document.querySelector(".container")
 eventHub.addEventListener('noteStateChanged', () => {
         const newNotes = useNotes() 
         render(newNotes, useCriminals())
+})
+
+eventHub.addEventListener('click', event => {
+    if (event.target.id.startsWith("deleteNote--")){
+        const [prefix, id] = event.target.id.split("--")
+        deleteNote(id)
+    }
 })
 
 
