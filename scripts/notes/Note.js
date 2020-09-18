@@ -7,6 +7,7 @@ export const noteHTML = (noteTaco) => {
             <div class="note--content">Note Text: ${noteTaco.noteText}</div>
             <div class="note--title">Suspect: ${noteTaco.suspectObj.name}</div>
             <div class="note--timestamp">Date: ${new Date(noteTaco.date).toLocaleDateString('en-US')}</div>
+            <button id="deleteNote--${noteTaco.id}">Delete</button>
             <br>
         </section>     
     `
